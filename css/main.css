@@ -1,19 +1,101 @@
 
-body {
-  text-align : center;
+html, body {
+  margin: 0;
+  padding: 0.5rem;
+  font-size: 16px;
+
+  text-align: left;
 }
-canvas {
-  display : block;
-  width : 280px;
-  height : 210px;
-  margin : auto;
-  padding : 0;
-  border : none;
-  background-color : black;
+
+hr {
+  margin-bottom:2em;
 }
-button {
-  display : block;
-  font-size : inherit;
-  margin : auto;
-  padding : 0.6em;
+
+#wrapper {
+  display: grid;
+  gap: 1rem;
+  grid-auto-columns: 20rem;
+}
+
+.demo-button {
+  cursor: pointer;
+
+  padding: 1rem;
+  text-align: center;
+
+  border-style: solid;
+  border-color: #333;
+  border-width: 0.125rem;
+  border-radius: 0.5rem;
+
+  background-color: #eee;
+
+  transition: box-shadow 0.2s;
+}
+
+.demo-button:hover {
+  box-shadow: 0 0 1.0rem 0rem #666;
+}
+
+.demo-button:active {
+  box-shadow: 0 0 0.65rem 0.35rem #666;
+}
+
+#demo-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  margin: 0;
+
+  background-color: #0008;
+}
+
+/* 
+breaks for certain demo-viewport height combinations
+  namely when: demo.height > 0.75 * viewport.height
+
+breaks when the demo is wider than the viewport
+
+could fix both with media queries or changing the centering method
+ */
+#demo-container {
+  display: inline-block;
+  position: relative;
+  top: 25%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+#close-demo {
+  cursor: pointer;
+
+  position: fixed;
+  top: -2rem;
+  right: -2rem;
+
+  width: 1.5rem;
+  height: 1.5rem;
+
+  color: #ccc;
+
+  text-align: center;
+  line-height: 1.5rem;
+
+  border-radius: 0.25rem;
+
+  transition: box-shadow 0.2s background-color 0.2s;
+}
+
+#close-demo:hover {
+  box-shadow: 0 0 0.5rem 0.5rem #000a;
+  background-color: #000a;
+}
+
+#close-demo:active {
+  box-shadow: 0 0 0.75rem 0.5rem #000;
+  background-color: #000;
+}
+
+#demo-frame {
+  background-color: white;
 }
