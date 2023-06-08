@@ -20,7 +20,7 @@ const DemoButton = {
 
     DemoFrame.width = width;
     DemoFrame.height = height;
-    DemoFrame.setAttribute("src", `/demos/${demoSrc}`);
+    DemoFrame.setAttribute("src", `demos/${demoSrc}`);
 
     DemoOverlay.removeAttribute("hidden");
   }
