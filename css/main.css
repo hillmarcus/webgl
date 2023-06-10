@@ -121,10 +121,7 @@ hr {
 
 #wrapper {
   display: grid;
-
   gap: 1rem;
-  grid-template-columns: repeat(3, 20rem);
-  grid-template-rows: 20rem;
 
   margin-left: 1rem;
   margin-right: 1rem;
@@ -166,4 +163,47 @@ hr {
   width: 100%;
   height: calc(100% - 1.5em);
   margin:auto;
+}
+
+
+/*
+  The main layout requires 66rem across. That's
+   3 * 20rem for the grid columns, 2rem for the
+   grid gaps, 2rem for the wrapper margins,
+   and 2rem for the html padding
+
+  The second layout requires 45rem. Starting
+   from the 66rem above, remove 20rem for
+   one column and 1rem for the grid gap
+
+  The final layout requires 22rem. Remove
+   an additional 20rem for the grid column,
+   1rem for the grid gap, and the 2rem from
+   the wrapper margin
+
+  I'm not going to bother writing a sub-22rem
+   layout unless I notice issues on phones.
+*/
+
+@media (width < 35rem) {
+  #wrapper {
+    margin-left: 0;
+    margin-right: 0;
+
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (66rem > width >= 35rem) {
+  #wrapper {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 20rem;
+  }
+}
+
+@media (width >= 66rem) {
+  #wrapper {
+    grid-template-columns: repeat(3, 20rem);
+    grid-template-rows: 20rem;
+  }
 }
