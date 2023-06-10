@@ -1,9 +1,20 @@
 
 /* Main Blue: #1080E1 */
 
+@font-face {
+  font-family: "FiraCode";
+  src: url('../fonts/FiraCode/FiraCode-Regular.woff2'),
+       url('../fonts/FiraCode/FiraCode-Regular.woff'),
+       url('../fonts/FiraCode/FiraCode-Regular.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
 html, body {
   margin: 0;
   padding: 0;
+
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 16px;
 
   text-align: left;
@@ -14,6 +25,15 @@ html, body {
 
 html {
   padding: 0.5rem 1rem;
+}
+
+code {
+  font-family: FiraCode, monospace;
+  font-size: 90%;
+
+  background-color: #D0D0D0;
+  
+  padding: 0.1em 0.25em;
 }
 
 /* p's */
@@ -49,6 +69,8 @@ h2 {
   border-left: 0.125em solid #333;
   border-bottom: 0.125em solid #333;
   border-bottom-left-radius: 0.25em;
+
+  font-variant-caps: small-caps;
 }
 
 h2 {
@@ -66,10 +88,13 @@ a:visited {
 
 h1 > a,
 h2 > a {
-  all: unset;
-  cursor: pointer;
+  all: inherit;
 
-  font-family: Georgia, serif;
+  margin: 0;
+  padding: 0;
+  border: none;
+
+  cursor: pointer;
 }
 
 h1 > a:visited,
@@ -96,15 +121,24 @@ hr {
 
 #wrapper {
   display: grid;
+
   gap: 1rem;
-  grid-auto-columns: 20rem;
+  grid-template-columns: repeat(3, 20rem);
+  grid-template-rows: 20rem;
+
   margin-left: 1rem;
+  margin-right: 1rem;
 }
 
 .demo-button {
   cursor: pointer;
 
+  /* display: block; */
+  width: 100%;
+  box-sizing: border-box;
+
   padding: 1rem;
+
   text-align: center;
 
   border-style: solid;
@@ -124,4 +158,12 @@ hr {
 
 .demo-button:active {
   box-shadow: 0 0 0.65rem 0.35rem #666;
+}
+
+.demo-button > img {
+  object-fit: contain;
+
+  width: 100%;
+  height: calc(100% - 1.5em);
+  margin:auto;
 }
